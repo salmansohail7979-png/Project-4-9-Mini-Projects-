@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>
+    Grammar Checker
+  </h2>
+
+  <script>
+    const story = 'Last weekend, I took literally the most beautifull postcard bike ride of my life. The route was entirely through the most gorgeous landscapes imaginable, literally stunning hills, a river, and a beautiful waterfall. The scenery was so beautiful, I felt like I was in a postcard. It was a beautiful day.';
+
+const unnecessaryWord = 'literally';
+const misspelledWord = 'beautifull';
+const badWord = 'postcard';
+
+// 1. Split story into array
+let storyWords = story.split(' ');
+
+// 1. Log array (then comment out after checking)
+// console.log(storyWords);
+
+// 2. Join and log story
+console.log(storyWords.join(' '));
+
+// 3 & 4. Count words
+let count = 0;
+
+storyWords.forEach((word) => {
+  count++;
+});
+
+console.log(count);
+
+// 5 & 6. Filter unnecessary word
+storyWords = storyWords.filter((word) => {
+  return word !== unnecessaryWord;
+});
+
+// 7. Fix misspelled word
+storyWords = storyWords.map((word) => {
+  return word === misspelledWord ? 'beautiful' : word;
+});
+
+// 8. Find bad word index
+const badWordIndex = storyWords.findIndex((word) => {
+  return word === badWord;
+});
+
+console.log(badWordIndex);
+
+// 9. Replace bad word
+storyWords[badWordIndex] = 'really';
+
+// 10. Check word length
+const lengthCheck = storyWords.every((word) => {
+  return word.length <= 10;
+});
+
+console.log(lengthCheck);
+
+// 11. Find long word (>10 chars) and replace in original string
+const longWord = storyWords.find((word) => word.length > 10);
+
+if (longWord) {
+  storyWords[storyWords.indexOf(longWord)] = 'glorious';
+}
+
+// 12. Final output (MUST be last line)
+console.log(storyWords.join(' '));
+  </script>
+  
+<p>press F12 or select inspect mode for the result it will be shown in console</p>
+<p>Note: change the value in "vaiable  story "  for diffrent results </p>
+<a href="index.html">
+  <button>
+    Back to main page.
+  </button>
+</a>
+
+
+</body>
+</html>

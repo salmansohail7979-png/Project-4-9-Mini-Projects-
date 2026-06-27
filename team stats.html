@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Stats Project</title>
+</head>
+<body>
+  <h1>Team Stats</h1>
+  <p>Open the browser console (F12) to see the output.</p>
+
+  <script>
+    const team = {
+      _players: [
+        {
+          firstName: 'Salman',
+          lastName: 'Sohail',
+          age: 24
+        },
+        {
+          firstName: 'Zain',
+          lastName: 'Shah',
+          age: 23
+        },
+        {
+          firstName: 'Pamir',
+          lastName: 'Khan',
+          age: 35
+        }
+      ],
+
+      _games: [
+        {
+          opponent: 'Science College',
+          teamPoints: 45,
+          opponentPoints: 42
+        },
+        {
+          opponent: 'BUITEMS',
+          teamPoints: 38,
+          opponentPoints: 35
+        },
+        {
+          opponent: 'University Of Balochistan',
+          teamPoints: 50,
+          opponentPoints: 47
+        }
+      ],
+
+      get players() {
+        return this._players;
+      },
+
+      get games() {
+        return this._games;
+      },
+
+      addPlayer(newFirstName, newLastName, newAge) {
+        const player = {
+          firstName: newFirstName,
+          lastName: newLastName,
+          age: newAge
+        };
+
+        this._players.push(player);
+      },
+
+      addGame(newOpponent, newTeamPoints, newOpponentPoints) {
+        const game = {
+          opponent: newOpponent,
+          teamPoints: newTeamPoints,
+          opponentPoints: newOpponentPoints
+        };
+
+        this._games.push(game);
+      }
+    };
+
+    // Add a new player
+    team.addPlayer('Mutayab', 'Rehman', 31);
+
+    // Display players
+    console.log('Players:');
+    console.log(team.players);
+
+    // Add a new game
+    team.addGame('Pakistan', 100, 98);
+
+    // Display games
+    console.log('Games:');
+    console.log(team.games);
+  </script>
+
+  <a href="index.html">
+    <button>Back to main page.</button>
+  </a>
+
+</body>
+</html>

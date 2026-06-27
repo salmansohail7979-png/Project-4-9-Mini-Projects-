@@ -1,0 +1,49 @@
+5<!DOCTYPE html>
+<html>
+<head>
+  <title>Race Program</title>
+</head>
+<body>
+
+<h1>Race Checker</h1>
+
+<script>
+  // 1. Race number assigned randomly
+  let raceNumber = Math.floor(Math.random() * 1000);
+
+  // 2. Early registration status
+  const registeredEarly = true;
+
+  // 3. Runner age
+  const age = 15;
+
+  // 4. If runner is an early adult (18+ and registered early)
+  if (age > 18 && registeredEarly) {
+    raceNumber += 1000;
+  }
+
+  // 5. Determine race time
+  if (age > 18 && registeredEarly) {
+    console.log(`Race Number: ${raceNumber}, Start time: 9:30 am`);
+  } 
+  else if (age > 18 && !registeredEarly) {
+    console.log(`Race Number: ${raceNumber}, Start time: 11:00 am`);
+  } 
+  else if (age < 18) {
+    console.log(`Race Number: ${raceNumber}, Start time: 12:30 pm`);
+  } 
+  else {
+    console.log("Please see the registration desk.");
+  }
+</script>
+ <p>
+    to see result press F12 or select inspect 
+ </p>
+ <a href="index.html">
+  <button>
+    Back to main page.
+  </button>
+</a>
+
+</body>
+</html>

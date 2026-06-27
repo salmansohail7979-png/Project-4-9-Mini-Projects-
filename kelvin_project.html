@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Temperature Output</h2>
+<p id="output"></p>
+
+<script>
+const kelvin = 293;
+const celsius = kelvin - 273;
+let fahrenheit = celsius * (9 / 5) + 32;
+fahrenheit = Math.floor(fahrenheit);
+
+document.getElementById("output").textContent =
+  `The temperature is ${fahrenheit} degrees Fahrenheit`;
+</script>
+<p>
+    devolper mode or pressing f12,to see the result.
+</p>
+ <a href="index.html">
+    <button>
+      Back to main page.
+    </button>
+  </a>
+</body>
+</html>

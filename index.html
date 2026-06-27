@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Sohail | Computer Science Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 29, 49, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --glow-color: rgba(168, 85, 247, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 4rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header Section */
+        header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .student-badge {
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .student-badge code {
+            font-family: 'JetBrains Mono', monospace;
+            color: #22d3ee;
+            font-weight: 600;
+        }
+
+        /* Technical Overview Section */
+        .overview-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .overview-section h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .overview-section h2::before {
+            content: '•';
+            color: #a855f7;
+            font-size: 1.8rem;
+        }
+
+        .overview-section p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 900px;
+            margin-bottom: 1.75rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #e2e8f0;
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            border-color: #a855f7;
+            background-color: rgba(168, 85, 247, 0.1);
+            color: #fff;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin: 4rem 0 2rem 0;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+        }
+
+        /* Grid System */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Lab Cards Styling */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top glow strip effect for cards */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4), 0 0 25px var(--glow-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+
+        .project-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.6rem;
+            transition: color 0.2s ease;
+        }
+        
+        .project-card:hover h3 {
+            color: #38bdf8;
+        }
+
+        .project-card p {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-focus {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            margin-top: auto;
+            transition: color 0.2s ease;
+        }
+        
+        .project-card:hover .meta-focus {
+            color: #e2e8f0;
+        }
+
+        /* Color Variations for Individual Modules */
+        .card-mod-1::before { background: #38bdf8; }
+        .card-mod-1 .project-id { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+        .card-mod-1 { --glow-color: rgba(56, 189, 248, 0.15); }
+
+        .card-mod-2::before { background: #a855f7; }
+        .card-mod-2 .project-id { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+        .card-mod-2 { --glow-color: rgba(168, 85, 247, 0.15); }
+
+        .card-mod-3::before { background: #ec4899; }
+        .card-mod-3 .project-id { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+        .card-mod-3 { --glow-color: rgba(236, 72, 153, 0.15); }
+
+        .card-mod-4::before { background: #10b981; }
+        .card-mod-4 .project-id { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .card-mod-4 { --glow-color: rgba(16, 185, 129, 0.15); }
+
+        .card-mod-5::before { background: #f59e0b; }
+        .card-mod-5 .project-id { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .card-mod-5 { --glow-color: rgba(245, 158, 11, 0.15); }
+
+        .card-mod-6::before { background: #6366f1; }
+        .card-mod-6 .project-id { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
+        .card-mod-6 { --glow-color: rgba(99, 102, 241, 0.15); }
+
+        .card-mod-7::before { background: #06b6d4; }
+        .card-mod-7 .project-id { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+        .card-mod-7 { --glow-color: rgba(6, 182, 212, 0.15); }
+
+        .card-mod-8::before { background: #d946ef; }
+        .card-mod-8 .project-id { background: rgba(217, 70, 239, 0.15); color: #e879f9; }
+        .card-mod-8 { --glow-color: rgba(217, 70, 239, 0.15); }
+
+        .card-mod-9::before { background: #84cc16; }
+        .card-mod-9 .project-id { background: rgba(132, 204, 22, 0.15); color: #a3e635; }
+        .card-mod-9 { --glow-color: rgba(132, 204, 22, 0.15); }
+
+        footer {
+            text-align: center;
+            margin-top: 7rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.875rem;
+            color: #64748b;
+            letter-spacing: 0.02em;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            body { padding: 2rem 1rem; }
+            .header-meta { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+            header h1 { font-size: 2.25rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-meta">
+                <div>
+                    <h1>Web Technologies</h1>
+                    <p style="color: var(--text-muted); margin-top: 0.4rem; font-weight: 500;"> Project of Sir Pamir </p>
+                </div>
+                <div class="student-badge">
+                    Student: Salman Sohail &nbsp;|&nbsp; Roll No: <code>2652</code>
+                </div>
+            </div>
+
+            <div class="overview-section">
+                <h2>Project  Overview</h2>
+                <p>
+                      It is the Project 4 and in it I have 9 more mini different projects which I solve according to the instructions of Sir Pamir Khan. I have take the little help of AI to built This
+                </p>
+                <div class="tech-tags">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h2 class="section-title">Algorithmic Implementation Lab</h2>
+
+            <div class="projects-grid">
+
+                <a href="kelvin_project.html" class="project-card card-mod-1">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_01</span>
+                        </div>
+                        <h3>Kelvin Weather</h3>
+                        <p>Implements linear mathematical transformations to convert thermal metrics across foundational scalar systems.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Variable Arithmetic & Casts</div>
+                </a>
+
+                <a href="race_day.html" class="project-card card-mod-2">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_02</span>
+                        </div>
+                        <h3>Race Day</h3>
+                        <p>Evaluates age brackets and time parameters through conditional logic statements to resolve scheduling state algorithms.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Deterministic Control Flow</div>
+                </a>
+
+                <a href="rock_paper.html" class="project-card card-mod-3">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_03</span>
+                        </div>
+                        <h3>Rock Paper Scissors</h3>
+                        <p>Generates pseudo-random evaluations mapped against conditional matrices to model asymmetric game theory states.</p>
+                    </div>
+                    <div class="meta-focus">Focus: State Matrix Logic</div>
+                </a>
+
+                <a href="sleep%20dept%20calculator.html" class="project-card card-mod-4">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_04</span>
+                        </div>
+                        <h3>Sleep Debt Calculator</h3>
+                        <p>Aggregates temporal weekly datasets, calculating standard variations against operational target thresholds.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Iterative Aggregation</div>
+                </a>
+
+                <a href="training%20days.html" class="project-card card-mod-5">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_05</span>
+                        </div>
+                        <h3>Training Days</h3>
+                        <p>Models variable lifecycle states, isolating data definitions using function blocks and block scoping constraints.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Scope & Memory Encapsulation</div>
+                </a>
+
+                <a href="Whale%20Talk.html" class="project-card card-mod-6">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_06</span>
+                        </div>
+                        <h3>Whale Talk</h3>
+                        <p>A string array manipulator parsing strings through nested iterations to capture target indices.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Nested Loop Array Filters</div>
+                </a>
+
+                <a href="Grammar%20checker.html" class="project-card card-mod-7">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_07</span>
+                        </div>
+                        <h3>Grammar Checker</h3>
+                        <p>Utilizes sophisticated iterator methods (`.filter()`, `.map()`) for lexical string parsing and replacements.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Higher-Order Iteration</div>
+                </a>
+
+                <a href="Meal%20Maker.html" class="project-card card-mod-8">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_08</span>
+                        </div>
+                        <h3>Meal Maker</h3>
+                        <p>Utilizes standard Object-Oriented design to encapsulate private records via structural getter and setter methods.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Data Encapsulation & Objects</div>
+                </a>
+
+                <a href="team%20stats.html" class="project-card card-mod-9">
+                    <div>
+                        <div class="card-header">
+                            <span class="project-id">MODULE_09</span>
+                        </div>
+                        <h3>Team Stats</h3>
+                        <p>Constructs multidimensional records parsing complex sports objects into accessible mutations.</p>
+                    </div>
+                    <div class="meta-focus">Focus: Relational Objects / Arrays</div>
+                </a>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Salman Sohail &bull; Department of Computer Science</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

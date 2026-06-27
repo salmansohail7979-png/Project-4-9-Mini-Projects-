@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Project</title>
+</head>
+<body>
+  <h1>Today's Special</h1>
+  <p id="output"></p>
+
+  <script>
+    const menu = {
+      _meal: '',
+      _price: 0,
+
+      set meal(mealToCheck) {
+        if (typeof mealToCheck === 'string') {
+          this._meal = mealToCheck;
+        }
+      },
+
+      set price(priceToCheck) {
+        if (typeof priceToCheck === 'number') {
+          this._price = priceToCheck;
+        }
+      },
+
+      get todaysSpecial() {
+        if (this._meal && this._price) {
+          return `Today's Special is ${this._meal} for $${this._price}!`;
+        } else {
+          return 'Meal or price was not set correctly!';
+        }
+      }
+    };
+
+    menu.meal = 'Chicken Biryani';
+    menu.price = 7;
+
+    console.log(menu.todaysSpecial);
+
+    // Show result on webpage too
+    document.getElementById("output").textContent = menu.todaysSpecial;
+  </script>
+  
+  <a href="index.html">
+    <button>Back to main page.</button>
+  </a>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Whale Talk</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background: #f4f4f4;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Whale Talk Output</h1>
+
+  <script>
+    let input = "turpentine and turtles";
+
+    const vowels = ["a", "e", "i", "o", "u"];
+    let resultArray = [];
+
+    for (let i = 0; i < input.length; i++) {
+
+      if (input[i] === "e") {
+        resultArray.push(input[i]);
+      }
+
+      if (input[i] === "u") {
+        resultArray.push(input[i]);
+      }
+
+      for (let j = 0; j < vowels.length; j++) {
+        if (input[i] === vowels[j]) {
+          resultArray.push(input[i]);
+        }
+      }
+    }
+
+    let resultString = resultArray.join("").toUpperCase();
+
+    console.log(resultString);
+
+    document.body.innerHTML += "<p><b>Input:</b> " + input + "</p>";
+    document.body.innerHTML += "<p><b>Whale Talk:</b> " + resultString + "</p>";
+  </script>
+
+  <p>Note: change the value in "input variable" cuz the value is hard coded</p>
+
+  <a href="index.html">
+    <button>Back to main page.</button>
+  </a>
+
+</body>
+</html>
